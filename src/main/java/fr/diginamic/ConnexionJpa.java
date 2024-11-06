@@ -10,15 +10,16 @@ public class ConnexionJpa {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu_essai");
         EntityManager em = entityManagerFactory.createEntityManager();
 
+        Region region = em.find(Region.class,1);
+        if (region!=null){
+            System.out.println("Nom de la region " + region);
+        }
+
         try {
             EntityTransaction transaction = em.getTransaction();
             transaction.begin();
-            Region region = em.find(Region.class,1);
-            if (region!=null){
-                System.out.println("Nom de la region " + region.getNom());
-            }
             Region region2 = new Region();
-             region2.setNom("Mayotte");
+            region2.setNom("Mayotte");
             em.persist(region2);
             transaction.commit();
             System.out.println("Connexion réussie à la base de données.");
@@ -26,6 +27,8 @@ public class ConnexionJpa {
             System.out.println("Échec de la connexion à la base de données.");
             e.printStackTrace();
         }
+        em.close();
+        entityManagerFactory.close();
 
     }
 }

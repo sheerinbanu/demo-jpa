@@ -13,4 +13,13 @@ https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
             <property name="hibernate.show_sql" value="true" />
         </properties>
     </persistence-unit>
+    <persistence-unit name="biblio" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bibliotheque"/>
+            <property name="jakarta.persistence.jdbc.user" value="sheerin" />
+            <property name="jakarta.persistence.jdbc.password" value="" />
+            <property name="hibernate.show_sql" value="true" />
+        </properties>
+    </persistence-unit>
 </persistence>

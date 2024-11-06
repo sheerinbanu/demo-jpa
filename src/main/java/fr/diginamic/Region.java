@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Region {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
     private String nom;
 
     public Region(){
@@ -30,5 +30,13 @@ public class Region {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    @Override
+    public String toString() {
+        return "Region{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                '}';
     }
 }
