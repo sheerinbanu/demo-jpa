@@ -13,7 +13,13 @@ public class Livre {
 
     private String auteur;
 
+    public Livre(String titre, String auteur) {
+        this.titre = titre;
+        this.auteur = auteur;
+    }
+
     public Livre(){
+
 
     }
 
